@@ -60,7 +60,11 @@ body {
 }
 
 content {
-  display: block;
+  border: none;
+}
+
+content:focus {
+  outline: none;
 }
 
 #content p node:before {

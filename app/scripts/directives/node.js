@@ -4,10 +4,10 @@ angular.module('testFlowApp')
   .directive('node', function ($compile) {
   	return {
   		restrict: 'E',
-	    replace: true,
+	    replace: true,/*
 	    scope: {
 	    	node: '='
-	    },
+	    },*/
 	    template: '<li><content contenteditable="true" ng-model="node.content"></content></li>', //'<div ng-model="node.content" contenteditable="true"></div>',
 	    link: function(scope, element, attrs, ctrl) {
 	    	if (angular.isArray(scope.node.children)) {

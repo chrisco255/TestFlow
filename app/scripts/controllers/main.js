@@ -20,12 +20,17 @@ angular.module('testFlowApp')
 			$scope.children = [];
 		}
 
-		function appendNode() {
-			$scope.root.children.push(new Node(""));
+		function appendNode(scope) {
+			if(scope.node.children.length === 0) { 
+				var i = _.indexOf(scope.nodecollection, scope.node) + 1;
+				scope.nodecollection.splice(i, 0, new Node());
+			} else if(scope.node.children.length > 0) {
+				scope.node.children.unshift(new Node());
+			}
 		}
 
-		$scope.enterKeyHandler = function() {
-			appendNode();
+		$scope.enterKeyHandler = function(scope) {
+			appendNode(scope);
 		};
 
 		function setupDefaultNodes(root) {
