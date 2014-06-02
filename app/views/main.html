@@ -1,36 +1,36 @@
 <div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">TestFlow</h3>
-</div>
-
-<div class="jumbotron">
-  <h1>Hello Carly!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Do your laundry.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+	<ul class="nav nav-pills pull-right">
+		<li class="active"><a ng-href="#">Home</a></li>
+		<li><a ng-href="#">About</a></li>
+		<li><a ng-href="#">Contact</a></li>
+	</ul>
+	<h3 class="text-muted">TestFlow</h3>
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+	<ul class="nav nav-pills nav-stacked">
+		<li class="animate" ng-repeat="name in awesomeThings">
+			<a href="#"> {{name}} </a>
+		</li> 
+	</ul>
+	<button ng-click="removeEnd()">Remove End</button>
+	<button ng-click="removeAll()">Remove All</button>
 </div>
 
+<div id="content">
+	<nodecollection nodecollection="root.children"></nodecollection>
+</div>
+
+<!-- <div id="content" class="row marketing" contenteditable="true">
+	<p ng-repeat="node in root.children">
+		<input ng-model="node.content" />
+	</p>
+</div> -->
+
+<pre style="background: grey" id="displayModel" class="row marketing">
+	<nodecollection nodecollection="root.children"></nodecollection>
+</pre>
+
 <div class="footer">
-  <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+	<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
 </div>
