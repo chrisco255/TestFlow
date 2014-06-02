@@ -61,6 +61,7 @@ body {
 
 content {
   border: none;
+  display: inherit;
 }
 
 content:focus {

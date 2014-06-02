@@ -60,6 +60,22 @@ angular.module('testFlowApp')
 								}
 							}
 
+							//backspace
+							if(event.which === 8) {
+								//remove node from nodecollection if there are no children
+								if(element.text() === "") {
+									//get a list of all the content elements and the index of the current element
+									var contents = element.closest("div").find("content");
+									var index = _.indexOf(contents, element[0]);
+									var didRemoveNode = rootScope.backspaceHandler(scope);
+
+									if(didRemoveNode) {
+										event.preventDefault();
+										placeCaretAtEnd(contents[index-1]);
+									}
+								}
+							}
+
 							// Timeout of zero causes this to function to run after the current one 
 							// is complete.  Makes sure the view is updated before the model value gets updated.
 							setTimeout(function() {
