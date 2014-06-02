@@ -121,3 +121,32 @@ content:focus {
     border-bottom: 0;
   }
 }
+
+ul {
+  list-style-type: none;
+  margin-left: -25px;
+}
+
+li {
+  padding-left: 1.2em;
+}
+
+ul>li:before
+{
+  font-family: FontAwesome;
+  content: "\f07b";
+  display: inline-block;
+  margin-left: -1.2em; 
+  width: 1.2em; 
+}
+
+ul ul>li:before
+{
+  content: "\f0b1";
+}
+
+ul ul ul>li:before
+{
+  content: "\f15c";
+}
+
