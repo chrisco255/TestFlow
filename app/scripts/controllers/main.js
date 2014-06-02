@@ -15,11 +15,6 @@ angular.module('testFlowApp')
 			};
 		}
 
-		function NodeCtrl($scope, content) {
-			$scope.content = content || "";
-			$scope.children = [];
-		}
-
 		function appendNode(scope) {
 			if(scope.node.children.length === 0) { 
 				var i = _.indexOf(scope.nodecollection, scope.node) + 1;
@@ -31,6 +26,44 @@ angular.module('testFlowApp')
 
 		$scope.enterKeyHandler = function(scope) {
 			appendNode(scope);
+		};
+
+		$scope.tabHandler = function(scope) {
+			//find the previous sibling and make the current Node the last child of that sibling
+			var index = _.indexOf(scope.nodecollection, scope.node);
+			if(index > 0) {
+				//remove node from nodecollection
+				var node = scope.nodecollection.splice(index, 1);
+				//append to sibling's children
+				scope.nodecollection[index - 1].children.push(scope.node);
+			}
+		};
+
+		$scope.shiftTabHandler = function(scope) {
+			var index, parentCollection, parentNode, parentIndex;
+
+			//make the current Node the next sibling of its parent
+			index = _.indexOf(scope.nodecollection, scope.node);
+
+			if(scope.$parent && scope.$parent.$parent) {
+				//get the parent collection and cancel action if it doesn't exist
+				parentCollection = scope.$parent.$parent.nodecollection;
+				if(!parentCollection) {
+					return;
+				}
+
+				//grab the parent node and calculate the index in the parent collection
+				parentNode = scope.$parent.$parent.node;
+				parentIndex = _.indexOf(parentCollection, parentNode);
+
+				//remove the node from its current collection
+				scope.nodecollection.splice(index, 1);
+				
+				//splice in the node to the parent collection
+				parentCollection.splice(parentIndex + 1, 0, scope.node);
+
+			}
+
 		};
 
 		function setupDefaultNodes(root) {
