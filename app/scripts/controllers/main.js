@@ -92,4 +92,25 @@ angular.module('testFlowApp')
 			$scope.awesomeThings = [];
 		};
 
+		// $('#hello').mouseenter(
+		//     function(){
+		//     var list = $("#hello").append('<ul class="menu"></ul>').find('ul');
+		//     for (var i = 0; i < 10; i++)
+		//         list.append('<li>something</li>');
+		//  	}
+		// );
+
+		// $('#hello').mouseout(
+		// 	function(){
+		// 		var list = $("ul.menu").remove();
+		// 	}
+		// );
+
+		setTimeout(function() {
+			$('#content>ul>li>span').attr('data-content' , '<a>Test Suite</a><br>');
+			$('#content ul ul>li>span').attr('data-content' , 'Test Case');
+			$('#content ul ul ul>li>span').attr('data-content' , 'Step');
+			$('#content ul ul ul ul>li>span').attr('data-content' , 'Substep');
+		}, 0);
+
 	});
