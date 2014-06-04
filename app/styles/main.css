@@ -59,23 +59,21 @@ body {
   margin-top: 28px;
 }
 
+/* Plus/Minus Buttons */
+.expandable { 
+	display: none;
+}
+.collapsible {
+	display: none;
+}
+
 content {
   border: none;
-  display: inherit;
+  display: inline-block;
 }
 
 content:focus {
   outline: none;
-}
-
-#content p node:before {
-  font-family: FontAwesome;
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  text-decoration: inherit;
-  content: '\f07b';
-  margin-right: 10px;
 }
 
 .animate.ng-enter, 
