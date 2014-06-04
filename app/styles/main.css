@@ -61,7 +61,6 @@ body {
 
 content {
   border: none;
-  display: inherit;
 }
 
 content:focus {
@@ -127,6 +126,10 @@ content:focus {
 /******** Bullet Icons ********/
 /******************************/
 
+#content ul {
+  list-style-type: none;
+}
+
 .bullet {
   width: 28px;
   height: 28px;
@@ -150,18 +153,10 @@ ul ul ul>li>span {
   background:  url('../images/dot.png') center no-repeat;
 }
 
-#content ul {
-  list-style-type: none;
-}
-
 /******************************/
 /********* Hover Menu *********/
 /******************************/
 
-div.popover {
+.popover {
   text-align: center;
 }
-
-
-
-
