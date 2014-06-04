@@ -63,7 +63,17 @@ angular.module('testFlowApp')
 				parentCollection.splice(parentIndex + 1, 0, scope.node);
 
 			}
+		};
 
+		$scope.backspaceHandler = function(scope) {
+			var numChildren = scope.node.children.length;
+			if(!numChildren) {
+				//delete the node if there's no children
+				var index = _.indexOf(scope.nodecollection, scope.node);
+				scope.nodecollection.splice(index, 1);
+				return true;
+			}
+			return false;
 		};
 
 		function setupDefaultNodes(root) {

@@ -41,9 +41,9 @@ angular.module('testFlowApp')
 	      });
 
 	    	if (angular.isArray(scope.node.children)) {
-				element.append("<nodecollection nodecollection='node.children'></nodecollection>"); 
-				$compile(element.contents())(scope);
-			}
+					element.append("<nodecollection nodecollection='node.children'></nodecollection>"); 
+					$compile(element.contents())(scope);
+				}
 	    }
 	  };
   });
