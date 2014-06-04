@@ -61,7 +61,6 @@ body {
 
 content {
   border: none;
-  display: inherit;
 }
 
 content:focus {
@@ -121,4 +120,43 @@ content:focus {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+/******************************/
+/******** Bullet Icons ********/
+/******************************/
+
+#content ul {
+  list-style-type: none;
+}
+
+.bullet {
+  width: 28px;
+  height: 28px;
+  margin: 5px;
+  display: inline-block;
+  background-size: 28px 28px;
+  vertical-align: middle;
+  /* Folder designed by Sergio Calcara from the Noun Project */
+}
+
+ul>li>span {
+  background: url('../images/folder2.png') center no-repeat;
+  content: attr(data-content) ": ";
+}
+
+ul ul>li>span {
+  background:  url('../images/briefcase.png') center no-repeat;
+}
+
+ul ul ul>li>span {
+  background:  url('../images/dot.png') center no-repeat;
+}
+
+/******************************/
+/********* Hover Menu *********/
+/******************************/
+
+.popover {
+  text-align: center;
 }
