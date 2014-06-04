@@ -5,10 +5,11 @@ angular.module('testFlowApp')
   	return {
   		restrict: 'E',
 	    replace: true,
-	    template: '<li><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',
+	    template: '<li><span class="bullet"><span>{{$index +1}}</span></span><content contenteditable="true" ng-model="node.content"></content></li>',
 	    link: function(scope, element, attrs, ctrl) {
-	    	var strForHover = "Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete"
-	    		    	
+	    	var strForHover = " Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete "
+	    	
+	    	
 	    	// When a bullet is created, add a mouseover event listener
 	    	element.children(".bullet").popover({ trigger: "manual" , html: true, placement: 'bottom', content: strForHover})
 	    		// When the pointer hovers on span image
@@ -40,9 +41,9 @@ angular.module('testFlowApp')
 	      });
 
 	    	if (angular.isArray(scope.node.children)) {
-					element.append("<nodecollection nodecollection='node.children'></nodecollection>"); 
-					$compile(element.contents())(scope);
-				}
+				element.append("<nodecollection nodecollection='node.children'></nodecollection>"); 
+				$compile(element.contents())(scope);
+			}
 	    }
 	  };
   });

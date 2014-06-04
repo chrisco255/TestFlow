@@ -142,7 +142,6 @@ content:focus {
 
 ul>li>span {
   background: url('../images/folder2.png') center no-repeat;
-  content: attr(data-content) ": ";
 }
 
 ul ul>li>span {
@@ -151,6 +150,18 @@ ul ul>li>span {
 
 ul ul ul>li>span {
   background:  url('../images/dot.png') center no-repeat;
+}
+
+/* numbers for steps */
+ul>li>span>span {
+  display: none;
+}
+
+ul ul ul>li>span>span {
+  display: inherit;
+  color: white;
+  font-size: inherit;
+  margin: 4px 10px;
 }
 
 /******************************/
