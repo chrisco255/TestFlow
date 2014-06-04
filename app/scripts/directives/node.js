@@ -7,27 +7,37 @@ angular.module('testFlowApp')
 	    replace: true,
 	    template: '<li><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',
 	    link: function(scope, element, attrs, ctrl) {
-
+	    	var strForHover = "Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete"
 	    	
 	    	
 	    	// When a bullet is created, add a mouseover event listener
-	    	element.children(".bullet").popover({ trigger: "manual" , html: true, placement: 'bottom', content: 'hello'})
-	    		// When the pointer hovers on span image, show popover
+	    	element.children(".bullet").popover({ trigger: "manual" , html: true, placement: 'bottom', content: strForHover})
+	    		// When the pointer hovers on span image
 				.on("mouseenter", function () {
 					var _this = this;
-					   $(this).popover("show");
-					   // Hide if the pointer leaves popover
-					   $(".popover").on("mouseleave", function () {
-					      $(_this).popover('hide');
-					   });
-			   // If pointer is not inside popover AND the pointer leaves the span image, hide the popover
+					// Wait 300 ms
+					setTimeout(function() {
+						// If not hovering in another bullet
+						if ($(".bullet:hover")[0] === _this){
+							// Show the popover
+						   $(_this).popover("show");
+						   // If the pointer leaves popover, hide the popover
+						   $(".popover").on("mouseleave", function () {
+						      $(_this).popover('hide');
+						   }); 
+						}						
+					}, 300);					
+			   // If pointer leaves the span image
 			   }).on("mouseleave", function () {
-	         var _this = this;
-            setTimeout(function () {
-              	if (!$(".popover:hover").length) {
-                	$(_this).popover("hide")
-              	}
-            }, 100);
+		         var _this = this;
+		         // Wait 100ms
+	            setTimeout(function () {
+	            	// If not hovering in ANY popover
+	              	if (!$(".popover:hover").length) {
+	              		// Hide the popover
+	                	$(_this).popover("hide")
+	              	}
+	            }, 100);
 	      });
 
 	    	if (angular.isArray(scope.node.children)) {

@@ -126,10 +126,6 @@ content:focus {
 /******** Bullet Icons ********/
 /******************************/
 
-content {
-  font-size: initial;
-}
-
 .bullet {
   width: 28px;
   height: 28px;
@@ -139,8 +135,10 @@ content {
   vertical-align: middle;
   /* Folder designed by Sergio Calcara from the Noun Project */
 }
+
 ul>li>span {
   background: url('../images/folder2.png') center no-repeat;
+  content: attr(data-content) ": ";
 }
 
 ul ul>li>span {
@@ -151,38 +149,18 @@ ul ul ul>li>span {
   background:  url('../images/dot.png') center no-repeat;
 }
 
-/*#content ul {
+#content ul {
   list-style-type: none;
-  margin-left: -25px;
 }
-
-#content ul li {
-  padding-left: 1.2em;
-}
-
-#content ul>li:before
-{
-  font-family: FontAwesome;
-  content: "\f07b";
-  display: inline-block;
-  margin-left: -1.2em; 
-  width: 1.2em; 
-}
-
-#content ul ul>li:before
-{
-  content: "\f0b1";
-}
-
-#content ul ul ul>li:before
-{
-  content: "\f15c";
-}*/
 
 /******************************/
 /********* Hover Menu *********/
 /******************************/
 
-ul.menu {
-  display: fixed;
+div.popover {
+  text-align: center;
 }
+
+
+
+
