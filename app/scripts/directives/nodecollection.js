@@ -8,9 +8,6 @@ angular.module('testFlowApp')
 		scope: {
 			nodecollection: '='
 		},
-		template: "<ul><node ng-repeat='node in nodecollection' node='node'></node></ul>"/*,
-		link: function(a, b, c) {
-			console.log("link function ran on nodecollection");
-		}*/
+		template: "<ul><node ng-repeat='node in nodecollection' node='node'></node></ul>"
 	};
   });

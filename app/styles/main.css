@@ -60,16 +60,20 @@ body {
 }
 
 /* Plus/Minus Buttons */
-.expandable { 
+.expandable, .collapsible {
 	display: none;
+	position: absolute;
+	left: 0;
+	font-size: 18px;
+	padding: 7px;
 }
-.collapsible {
-	display: none;
+
+li {
+	position: relative;
 }
 
 content {
   border: none;
-  display: inline-block;
 }
 
 content:focus {
@@ -79,11 +83,11 @@ content:focus {
 .animate.ng-enter, 
 .animate.ng-leave
 { 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -webkit-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+    -moz-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+    -ms-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+    -o-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+    transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
     position: relative;
     display: block;
 } 
@@ -135,21 +139,23 @@ content:focus {
   margin: 5px;
   display: inline-block;
   background-size: 28px 28px;
+  background-position: center no-repeat;
   vertical-align: middle;
   /* Folder designed by Sergio Calcara from the Noun Project */
+  position: relative;
+  margin-left: 25px;
 }
 
-ul>li>span {
-  background: url('../images/folder2.png') center no-repeat;
-  content: attr(data-content) ": ";
+ul>li>.bullet {
+  background-image: url('../images/folder2.png');
 }
 
-ul ul>li>span {
-  background:  url('../images/briefcase.png') center no-repeat;
+ul ul>li>.bullet {
+  background-image: url('../images/briefcase.png');
 }
 
-ul ul ul>li>span {
-  background:  url('../images/dot.png') center no-repeat;
+ul ul ul>li>.bullet {
+  background-image:  url('../images/dot.png');
 }
 
 /******************************/

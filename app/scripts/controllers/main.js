@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('testFlowApp')
-	.controller('MainCtrl', function ($scope) {
+	.controller('MainCtrl', function ($scope, $timeout, $animate) {
 		function Node(content, children) {
 			var childNodes = [];
 			if(children) {
@@ -26,22 +26,39 @@ angular.module('testFlowApp')
 
 		$scope.enterKeyHandler = function(scope) {
 			appendNode(scope);
+			disableAnimationsThisCycle();
 		};
+
+		$scope.collapseHandler = function(scope) {
+			scope.node.children.splice(0, scope.node.children.length);
+		};
+
+		function disableAnimationsThisCycle() {
+			$animate.enabled(false);
+			$scope.$$postDigest(function() {
+				setTimeout(function() {
+					$animate.enabled(true);
+				}, 0);
+			});
+		}
 
 		$scope.tabHandler = function(scope) {
 			//find the previous sibling and make the current Node the last child of that sibling
 			var index = _.indexOf(scope.nodecollection, scope.node);
 			if(index > 0) {
+				scope.isCollapsible = false;
+
 				//remove node from nodecollection
 				var node = scope.nodecollection.splice(index, 1);
 				//append to sibling's children
 				scope.nodecollection[index - 1].children.push(scope.node);
+
+				disableAnimationsThisCycle();
 			}
 		};
 
 		$scope.shiftTabHandler = function(scope) {
 			var index, parentCollection, parentNode, parentIndex;
-
 			//make the current Node the next sibling of its parent
 			index = _.indexOf(scope.nodecollection, scope.node);
 
@@ -55,13 +72,14 @@ angular.module('testFlowApp')
 				//grab the parent node and calculate the index in the parent collection
 				parentNode = scope.$parent.$parent.node;
 				parentIndex = _.indexOf(parentCollection, parentNode);
-
+				scope.isCollapsible = false;
 				//remove the node from its current collection
 				scope.nodecollection.splice(index, 1);
 				
 				//splice in the node to the parent collection
 				parentCollection.splice(parentIndex + 1, 0, scope.node);
 
+				disableAnimationsThisCycle();
 			}
 		};
 
