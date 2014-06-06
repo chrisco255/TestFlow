@@ -26,18 +26,18 @@ angular.module('testFlowApp')
 						   }); 
 						}						
 					}, 300);					
-			   // If pointer leaves the span image
-			   }).on("mouseleave", function () {
-		         var _this = this;
-		         // Wait 100ms
-	            setTimeout(function () {
-	            	// If not hovering in ANY popover
-	              	if (!$(".popover:hover").length) {
-	              		// Hide the popover
-	                	$(_this).popover("hide")
-	              	}
-	            }, 100);
-	      });
+			    // If pointer leaves the span image
+			    }).on("mouseleave", function () {
+			         var _this = this;
+			         // Wait 100ms
+		            setTimeout(function () {
+		            	// If not hovering in ANY popover
+		              	if (!$(".popover:hover").length) {
+		              		// Hide the popover
+		                	$(_this).popover("hide")
+		              	}
+		            }, 100);
+	      		});
 
 	    	if (angular.isArray(scope.node.children)) {
 					element.append("<nodecollection nodecollection='node.children'></nodecollection>"); 

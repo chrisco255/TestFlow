@@ -1,38 +1,22 @@
-<div class="header">
-	<ul class="nav nav-pills pull-right">
-		<li class="active"><a ng-href="#">Home</a></li>
-		<li><a ng-href="#">About</a></li>
-		<li><a ng-href="#">Contact</a></li>
-	</ul>
-	<h3 class="text-muted">TestFlow</h3>
-</div>
 
-<div class="row marketing">
-	<ul class="nav nav-pills nav-stacked">
-		<li class="animate" ng-repeat="name in awesomeThings">
-			<a href="#"> {{name}} </a>
-		</li> 
-	</ul>
-	<button ng-click="removeEnd()">Remove End</button>
-	<button ng-click="removeAll()">Remove All</button>
-</div>
+<div id='container'>
 
-  <p id='hello' data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Hola! </p>
+	<div ng-include src="'views/sidebar.html'"></div>
 
-<div id="content">
-	<nodecollection nodecollection="root.children"></nodecollection>
-</div>
+	<div class="header">
+		<ul class="nav nav-pills pull-right">
+			<li><a ng-href="#">Expand All</a></li>
+			<li><a ng-href="#">Collapse All</a></li>
+		</ul>
+		<h3 class="text-muted">TestFlow</h3>
+	</div>
 
-<!-- <div id="content" class="row marketing" contenteditable="true">
-	<p ng-repeat="node in root.children">
-		<input ng-model="node.content" />
-	</p>
-</div> -->
+	<div id="content">
+		<nodecollection nodecollection="root.children"></nodecollection>
+	</div>
 
-<pre style="background: grey" id="displayModel" class="row marketing">
-	<nodecollection nodecollection="root.children"></nodecollection>
-</pre>
+	<div class="footer">
+		<p><span class="glyphicon glyphicon-heart"></span> from the vteam</p>
+	</div>
 
-<div class="footer">
-	<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
 </div>
