@@ -24,6 +24,15 @@ angular.module('testFlowApp')
 			}
 		}
 
+		var rooty;
+		$scope.makeChildTheRoot = function() {
+			rooty = $scope.root;
+			$scope.root = $scope.root.children[0];
+		};
+		$scope.bringTheRootBack = function() {
+			$scope.root = rooty;
+		};
+
 		$scope.enterKeyHandler = function(scope) {
 			appendNode(scope);
 			disableAnimationsThisCycle();
@@ -35,7 +44,10 @@ angular.module('testFlowApp')
 
 		function disableAnimationsThisCycle() {
 			$animate.enabled(false);
+			//postDigest runs after the bindings have been updated by Angular
 			$scope.$$postDigest(function() {
+				//DOM removals, it seems, run at the end of the postDigest function,
+				//so a setTimeout reenables the animations after the DOM removals
 				setTimeout(function() {
 					$animate.enabled(true);
 				}, 0);
@@ -104,13 +116,8 @@ angular.module('testFlowApp')
 		}
 
 		$scope.root = new Node();
-		setupDefaultNodes($scope.root);
 
-		$scope.awesomeThings = [
-			'HTML5 Boilerplate',
-			'AngularJS',
-			'Karma'
-		];
+		setupDefaultNodes($scope.root);
 
 		$scope.removeEnd = function() {
 			$scope.awesomeThings.splice(1);
@@ -120,4 +127,7 @@ angular.module('testFlowApp')
 			$scope.awesomeThings = [];
 		};
 
+		$scope.playAudio = function() {
+			$("#audio").get(0).play();
+		};
 	});
