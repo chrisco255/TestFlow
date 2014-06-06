@@ -49,7 +49,7 @@ angular.module('testFlowApp')
 								event.preventDefault();
 
 								//get a list of all the content elements and the index of the current element
-								var contents = element.closest("div").find("content");
+								var contents = element.closest("#content").find("content");
 								var index = _.indexOf(contents, element[0]);
 
 								//move the cursor up or down depending on which key the user presses

@@ -7,32 +7,15 @@
 	<h3 class="text-muted">TestFlow</h3>
 </div>
 
-<div class="row marketing">
-	<ul class="nav nav-pills nav-stacked">
-		<li class="animate" ng-repeat="name in awesomeThings">
-			<a href="#"> {{name}} </a>
-		</li> 
-	</ul>
-	<button ng-click="removeEnd()">Remove End</button>
-	<button ng-click="removeAll()">Remove All</button>
-</div>
-
-  <p id='hello' data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."> Hola! </p>
-
 <div id="content">
 	<nodecollection nodecollection="root.children"></nodecollection>
 </div>
-
-<!-- <div id="content" class="row marketing" contenteditable="true">
-	<p ng-repeat="node in root.children">
-		<input ng-model="node.content" />
-	</p>
-</div> -->
 
 <pre style="background: grey" id="displayModel" class="row marketing">
 	<nodecollection nodecollection="root.children"></nodecollection>
 </pre>
 
 <div class="footer">
-	<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+	<div ng-click="playAudio()" class="nbc pull-right"><audio preload="auto" id="audio" src="../sounds/TheMoreYouKnow.mp3" type="audio/mpeg"></audio></div>
+	<h2>"TestFlow: The More You Flow"</h2>
 </div>
