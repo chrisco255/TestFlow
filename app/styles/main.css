@@ -59,9 +59,12 @@ body {
 	margin-top: 28px;
 }
 
+.col-exp {
+	display: none;
+}
+
 /* Plus/Minus Buttons */
 .expandable, .collapsible {
-	display: none;
 	position: absolute;
 	left: 0;
 	font-size: 18px;
@@ -88,6 +91,7 @@ content:focus {
 	background-repeat: no-repeat;
 	position: relative;
 	display: inline-block;
+	float:right;
 }
 
 .animate.ng-enter, 

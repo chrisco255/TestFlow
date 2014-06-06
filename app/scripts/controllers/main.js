@@ -24,22 +24,17 @@ angular.module('testFlowApp')
 			}
 		}
 
-		var rooty;
-		$scope.makeChildTheRoot = function() {
-			rooty = $scope.root;
-			$scope.root = $scope.root.children[0];
-		};
-		$scope.bringTheRootBack = function() {
-			$scope.root = rooty;
-		};
-
 		$scope.enterKeyHandler = function(scope) {
 			appendNode(scope);
 			disableAnimationsThisCycle();
 		};
 
 		$scope.collapseHandler = function(scope) {
-			scope.node.children.splice(0, scope.node.children.length);
+			scope.node.children.collapsed = "~!%@%!~";
+		};
+
+		$scope.expandHandler = function(scope) {
+			scope.node.children.collapsed = "";
 		};
 
 		function disableAnimationsThisCycle() {

@@ -8,6 +8,11 @@ angular.module('testFlowApp')
 		scope: {
 			nodecollection: '='
 		},
-		template: "<ul><node ng-repeat='node in nodecollection' node='node'></node></ul>"
+		template: "<ul><node ng-repeat='node in nodecollection | filter: { content: nodecollection.collapsed}' node='node'></node></ul>",
+		compile: function(element, attrs) {
+			return function(scope, element, attrs) {
+
+			};
+		}
 	};
   });

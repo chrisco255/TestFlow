@@ -6,28 +6,29 @@ angular.module('testFlowApp')
 		return {
 			restrict: 'E',
 			replace: true,
-			template: '<li ng-show="isCollapsible" ng-class="{ animate: isCollapsible }"><span class="expandable"><i class="fa fa-plus"></i></span><span ng-click="collapseHandler()" class="collapsible"><i class="fa fa-minus"></i></span><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',
+			template: '<li class="animate"><span class="col-exp"><span ng-show="node.children.collapsed" ng-click="$root.$$childHead.expandHandler(this)" class="expandable"><i class="fa fa-plus"></i></span><span ng-show="!node.children.collapsed" ng-click="$root.$$childHead.collapseHandler(this)" class="collapsible"><i class="fa fa-minus"></i></span></span><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',
 			link: function(scope, element, attrs, ctrl) { 	
-				scope.isCollapsible = scope.isCollapsible === undefined ? true : scope.isCollapsible;
+				//scope.visible = scope.visible === undefined ? true : scope.visible;
+				
 				// prevent double binding of events
-				var collapseElements = element.children(".collapsible, .expandable");
-				var collapseEvents = $._data(collapseElements[0], 'events');
-				if(!collapseEvents) {
-					collapseElements.click(function() {
-						scope.$root.$$childHead.collapseHandler(scope);
-					});
-				}
+				//var collapseElements = element.children(".col-exp").children(".collapsible, .expandable");
+				//var collapseEvents = $._data(collapseElements[0], 'events');
+				//if(!collapseEvents) {
+				//	collapseElements.click(function() {
+				//		scope.$root.$$childHead.collapseHandler(scope);
+				//	});
+				//}
 
 				element
 					.mouseover(function(event) {
 						event.stopPropagation();
-						$(".collapsible, .expandable").hide();
+						$(".col-exp").hide();
 						if(scope.node.children.length > 0) {
-							element.children(".collapsible").show();
+							element.children(".col-exp").show();
 						}
 					})
 					.mouseleave(function() {
-						element.children(".collapsible, .expandable").hide();
+						element.children(".col-exp").hide();
 					});
 				
 				var strForHover = "Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete"
