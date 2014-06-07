@@ -6,6 +6,7 @@ module.exports = function(config) {
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
+
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
@@ -48,6 +49,15 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['Chrome'],
 
+    plugins : [
+      'karma-htmlfile-reporter'
+    ],
+
+    reporters: ['progress', 'html'],
+
+    htmlReporter: {
+      outputFile: 'tests/units.html'
+    },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
