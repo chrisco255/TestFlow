@@ -18,6 +18,7 @@ module.exports = function(config) {
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-animate/angular-animate.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
@@ -50,13 +51,15 @@ module.exports = function(config) {
     browsers: ['Chrome'],
 
     plugins : [
-      'karma-htmlfile-reporter'
+      'karma-htmlfile-reporter',
+      'karma-chrome-launcher',
+      'karma-jasmine'
     ],
 
     reporters: ['progress', 'html'],
 
     htmlReporter: {
-      outputFile: 'tests/units.html'
+      outputFile: 'test/units.html'
     },
 
     // Continuous Integration mode

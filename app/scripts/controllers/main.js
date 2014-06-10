@@ -30,6 +30,7 @@ angular.module('testFlowApp')
 		};
 
 		$scope.collapseHandler = function(scope) {
+			//applying this unlikely string as a filter causes all the children to be collapsed
 			scope.node.children.collapsed = "~!%@%!~";
 		};
 
