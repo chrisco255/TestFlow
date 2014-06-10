@@ -24,6 +24,18 @@ angular.module('testFlowApp')
 			}
 		}
 
+		function disableAnimationsThisCycle() {
+			$animate.enabled(false);
+			//postDigest runs after the bindings have been updated by Angular
+			$scope.$$postDigest(function() {
+				//DOM removals, it seems, run at the end of the postDigest function,
+				//so a setTimeout reenables the animations after the DOM removals
+				setTimeout(function() {
+					$animate.enabled(true);
+				}, 0);
+			});
+		}
+
 		$scope.enterKeyHandler = function(scope) {
 			appendNode(scope);
 			disableAnimationsThisCycle();
@@ -38,17 +50,6 @@ angular.module('testFlowApp')
 			scope.node.children.collapsed = "";
 		};
 
-		function disableAnimationsThisCycle() {
-			$animate.enabled(false);
-			//postDigest runs after the bindings have been updated by Angular
-			$scope.$$postDigest(function() {
-				//DOM removals, it seems, run at the end of the postDigest function,
-				//so a setTimeout reenables the animations after the DOM removals
-				setTimeout(function() {
-					$animate.enabled(true);
-				}, 0);
-			});
-		}
 
 		$scope.tabHandler = function(scope) {
 			//find the previous sibling and make the current Node the last child of that sibling
@@ -114,14 +115,6 @@ angular.module('testFlowApp')
 		$scope.root = new Node();
 
 		setupDefaultNodes($scope.root);
-
-		$scope.removeEnd = function() {
-			$scope.awesomeThings.splice(1);
-		};
-
-		$scope.removeAll = function() {
-			$scope.awesomeThings = [];
-		};
 
 		$scope.playAudio = function() {
 			$("#audio").get(0).play();
