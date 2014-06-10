@@ -164,6 +164,10 @@ ul ul ul>li>span>span {
   margin: 4px 10px;
 }
 
+ul ul ul ul>li>span>span {
+  color: red;
+}
+
 /******************************/
 /********* Hover Menu *********/
 /******************************/

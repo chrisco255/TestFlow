@@ -7,9 +7,13 @@ angular.module('testFlowApp')
 	    replace: true,
 	    template: '<li><span class="bullet"><span>{{$index +1}}</span></span><content contenteditable="true" ng-model="node.content"></content></li>',
 	    link: function(scope, element, attrs, ctrl) {
-	    	var strForHover = " Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete "
+	    	var strForHover = " Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete "	    	
 	    	
-	    	
+	    	// scope.type = "root";
+	    	// if (scope.$parent.type === "root"){
+	    	// 	scope.type="substep";
+	    	// }
+
 	    	// When a bullet is created, add a mouseover event listener
 	    	element.children(".bullet").popover({ trigger: "manual" , html: true, placement: 'bottom', content: strForHover})
 	    		// When the pointer hovers on span image
