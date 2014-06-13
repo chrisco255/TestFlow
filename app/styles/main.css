@@ -33,14 +33,21 @@ body {
 
 /* Customize container */
 @media (min-width: 768px) {
+<<<<<<< HEAD
 	.container {
 		max-width: 730px;
 	}
+=======
+  .container {
+    max-width: 900px;
+  }
+>>>>>>> 706b67dca851e1fc96ae3b78f3bba293e6a77ebe
 }
 .container-narrow > hr {
 	margin: 30px 0;
 }
 
+<<<<<<< HEAD
 /* Main marketing message and sign up button */
 .jumbotron {
 	text-align: center;
@@ -75,6 +82,8 @@ li {
 	position: relative;
 }
 
+=======
+>>>>>>> 706b67dca851e1fc96ae3b78f3bba293e6a77ebe
 content {
 	border: none;
 }
@@ -185,5 +194,29 @@ ul ul ul>li>.bullet {
 /******************************/
 
 .popover {
-	text-align: center;
+  text-align: center;
+}
+
+/******************************/
+/********** Sidebar ***********/
+/******************************/
+
+#sidebar {
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-right: DimGray solid 2px;
+  background: gray;
+  border-radius: 2px;
+  padding: 15px;
+}
+
+#container {
+  position: relative;
+  padding-left: 220px;
+}
+
+#content {
 }

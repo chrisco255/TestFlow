@@ -14,6 +14,10 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/sidebar', {
+        templateUrl: 'views/sidebar.html',
+        controller: 'SidebarCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
