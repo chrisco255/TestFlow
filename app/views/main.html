@@ -1,13 +1,20 @@
-
-<div id="content">
-	<nodecollection nodecollection="root.children"></nodecollection>
+<div class="header">
+	<ul class="nav nav-pills pull-right">
+		<li class="active"><a ng-href="#">Home</a></li>
+		<li><a ng-href="#">About</a></li>
+		<li><a ng-href="#">Contact</a></li>
+	</ul>
+	<h3 class="text-muted">TestFlow</h3>
 </div>
+<div id='container'>
+	<div ng-include src="'views/sidebar.html'"></div>
 
-<pre style="background: grey" id="displayModel" class="row marketing">
-	<nodecollection nodecollection="root.children"></nodecollection>
-</pre>
+	<div id="content">
+		<nodecollection nodecollection="root.children"></nodecollection>
+	</div>
 
-<div class="footer">
-	<div ng-click="playAudio()" class="nbc pull-right"><audio preload="auto" id="audio" src="../sounds/TheMoreYouKnow.mp3" type="audio/mpeg"></audio></div>
-	<h2>"TestFlow: The More You Flow"</h2>
+	<div class="footer">
+		<div ng-click="playAudio()" class="nbc pull-right"><audio preload="auto" id="audio" src="../sounds/TheMoreYouKnow.mp3" type="audio/mpeg"></audio></div>
+		<h2>"TestFlow: The More You Flow"</h2>
+	</div>
 </div>

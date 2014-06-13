@@ -11,8 +11,30 @@ describe('Service: Tree', function () {
     Tree = _Tree_;
   }));
 
-  it('should do something', function () {
-    expect(!!Tree).toBe(true);
+  describe('Node', function() {
+    it('should have an empty string for default construction', function() {
+      var node = Tree.Node();
+      expect(node.content).toEqual('');
+    });
+
+    it('should set a content string on construction', function() {
+      var node = Tree.Node('test');
+      expect(node.content).toEqual('test');
+    });
+
+    it('should have an empty children array by default', function() {
+      var node = Tree.Node();
+      expect(node.children).toBeDefined();
+    });
+
+  });
+
+  describe('root', function() {
+    it('should be a Node', function () {
+      expect(Tree.root).toBeDefined();
+      expect(Tree.root.children).toBeDefined();
+      expect(Tree.root.content).toBeDefined();
+    });
   });
 
 });
