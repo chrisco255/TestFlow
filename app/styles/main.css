@@ -171,8 +171,9 @@ content:focus {
 	margin-left: 25px;
 }
 
-ul>li>.bullet {
-	background-image: url('../images/folder2.png');
+ul>li>span {
+  background: url('../images/folder2.png') center no-repeat;
+
 }
 
 ul ul>li>.bullet {
@@ -181,6 +182,22 @@ ul ul>li>.bullet {
 
 ul ul ul>li>.bullet {
 	background-image:  url('../images/dot.png');
+}
+
+/* numbers for steps */
+ul>li>span>span {
+  display: none;
+}
+
+ul ul ul>li>span>span {
+  display: inherit;
+  color: white;
+  font-size: inherit;
+  margin: 4px 10px;
+}
+
+ul ul ul ul>li>span>span {
+  color: red;
 }
 
 /******************************/
