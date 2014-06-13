@@ -6,6 +6,7 @@ module.exports = function(config) {
     // base path, that will be used to resolve files and exclude
     basePath: '',
 
+
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
@@ -17,6 +18,7 @@ module.exports = function(config) {
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-animate/angular-animate.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
@@ -35,7 +37,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // Start these browsers, currently available:
@@ -48,6 +50,17 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: ['Chrome'],
 
+    plugins : [
+      'karma-htmlfile-reporter',
+      'karma-chrome-launcher',
+      'karma-jasmine'
+    ],
+
+    reporters: ['progress', 'html'],
+
+    htmlReporter: {
+      outputFile: 'test/units.html'
+    },
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit

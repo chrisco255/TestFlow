@@ -362,6 +362,8 @@ module.exports = function (grunt) {
     grunt.task.run(['serve:' + target]);
   });
 
+  grunt.loadNpmTasks('grunt-karma');
+
   grunt.registerTask('test', [
     'clean:server',
     'concurrent:test',

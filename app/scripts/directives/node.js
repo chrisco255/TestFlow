@@ -1,24 +1,24 @@
 'use strict';
 
 angular.module('testFlowApp')
-	.directive('node', function ($compile) {
+	.directive('node', function ($compile, EventHandlers) {
 		
 		return {
 			restrict: 'E',
 			replace: true,
-			template: '<li class="animate"><span class="col-exp"><span ng-show="node.children.collapsed" ng-click="$root.$$childHead.expandHandler(this)" class="expandable"><i class="fa fa-plus"></i></span><span ng-show="!node.children.collapsed" ng-click="$root.$$childHead.collapseHandler(this)" class="collapsible"><i class="fa fa-minus"></i></span></span><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',
-			link: function(scope, element, attrs, ctrl) { 	
-				//scope.visible = scope.visible === undefined ? true : scope.visible;
-				
-				// prevent double binding of events
-				//var collapseElements = element.children(".col-exp").children(".collapsible, .expandable");
-				//var collapseEvents = $._data(collapseElements[0], 'events');
-				//if(!collapseEvents) {
-				//	collapseElements.click(function() {
-				//		scope.$root.$$childHead.collapseHandler(scope);
-				//	});
-				//}
+			template: '<li class="animate"><span class="col-exp"><span ng-show="node.children.collapsed" ng-click="expand(this)" class="expandable"><i class="fa fa-plus"></i></span><span ng-show="!node.children.collapsed" ng-click="collapse(this)" class="collapsible"><i class="fa fa-minus"></i></span></span><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',
+			link: function(scope, element, attrs, ctrl) {
+				//bound to the collapse node icon
+				scope.collapse = scope.collapse || function(scope) {
+					EventHandlers.Collapse(scope);
+				};
 
+				//bound to the expand node icon
+				scope.expand = scope.expand || function(scope) {
+					EventHandlers.Expand(scope);
+				};
+
+				//show or hide the expand/collapse icons depending on if the node has children or not
 				element
 					.mouseover(function(event) {
 						event.stopPropagation();
@@ -31,6 +31,7 @@ angular.module('testFlowApp')
 						element.children(".col-exp").hide();
 					});
 				
+				//text options for the hover menu
 				var strForHover = "Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete"
 								
 				// When a bullet is created, add a mouseover event listener
@@ -63,6 +64,7 @@ angular.module('testFlowApp')
 							}, 100);
 				});
 
+				//isArray check necessary to stop adding new elements if there are no children
 				if (angular.isArray(scope.node.children)) {
 					element.append("<nodecollection nodecollection='node.children'></nodecollection>"); 
 					$compile(element.contents())(scope);
