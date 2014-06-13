@@ -15,8 +15,10 @@ describe('Controller: MainCtrl', function () {
       $scope: scope
     });
   }));
+  //some change
+  //more changes
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(3).toBe(3);
+    expect(scope.testee).toBe('hmmss');
   });
 });
