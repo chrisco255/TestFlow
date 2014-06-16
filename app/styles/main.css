@@ -2,6 +2,7 @@
 body {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	background-image: url('../images/halftone.png');
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -34,12 +35,18 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
 	.container {
-		max-width: 730px;
-	}
-	.container {
-		max-width: 900px;
+		max-width: 1024px;
 	}
 }
+
+/* Customize container */
+@media (min-width: 1024px) {
+	.container {
+		max-width: 1280px;
+	}
+}
+
+
 .container-narrow > hr {
 	margin: 30px 0;
 }
@@ -224,10 +231,45 @@ ul ul ul ul>li>span>span {
   padding: 15px;
 }
 
+/******************************/
+/********** Body ***********/
+/******************************/
+.container {
+}
 #container {
   position: relative;
+  top: 3em;
   padding-left: 220px;
+  background-color: white;
+  margin-bottom: 3em;
+  border: 1px solid #CCC;
 }
 
 #content {
+	background-color: white;
+}
+
+/******************************/
+/********** Navbar ***********/
+/******************************/
+
+.navbar-brand {
+	width: 275px;
+}
+
+.navbar-brand:before {
+	display: block;
+	top: -.5em;
+	position: absolute;
+	width: 3.8em;
+	height: 3.8em;
+	content: "";
+	background: url('../images/testflow-medium.png') no-repeat;
+	background-size: 100%;
+	z-index: 100;
+}
+
+.navbar-brand img {
+	position: absolute;
+	left: 5.5em;
 }
