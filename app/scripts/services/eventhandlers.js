@@ -17,8 +17,12 @@ angular.module('testFlowApp')
 			if(scope.node.children.length === 0) { 
 				var i = _.indexOf(scope.nodecollection, scope.node) + 1;
 				scope.nodecollection.splice(i, 0, Tree.Node());
+				//now set the parents of the node collection
+				scope.node.parentNode.setParents();
 			} else if(scope.node.children.length > 0) {
-				scope.node.children.unshift(Tree.Node());
+				scope.node.prepend();
+				//scope.node.children.unshift(Tree.Node());
+				//scope.node.setParents();
 			}
 		}
 
@@ -57,6 +61,8 @@ angular.module('testFlowApp')
 				var node = scope.nodecollection.splice(index, 1);
 				//append to sibling's children
 				scope.nodecollection[index - 1].children.push(scope.node);
+				//refactor
+				scope.node.parentNode.setParents();
 			}
 
 			enableAnimations(scope);
@@ -81,11 +87,14 @@ angular.module('testFlowApp')
 				parentNode = scope.$parent.$parent.node;
 				parentIndex = _.indexOf(parentCollection, parentNode);
 				scope.isCollapsible = false;
+
 				//remove the node from its current collection
 				scope.nodecollection.splice(index, 1);
 				
 				//splice in the node to the parent collection
 				parentCollection.splice(parentIndex + 1, 0, scope.node);
+
+				scope.node.parentNode.parentNode.setParents();
 			}
 
 			enableAnimations(scope);
@@ -102,6 +111,12 @@ angular.module('testFlowApp')
 				return true;
 			}
 			return false;
+		};
+
+		//drill down to this node
+		this.ClickNode = function(scope, element) {
+			Tree.drillBranch.children = [scope.node];
+			scope.$root.$$childHead.root = Tree.drillBranch;
 		};
 
 		//collapse all children into the parent that was clicked

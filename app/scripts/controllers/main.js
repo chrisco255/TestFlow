@@ -16,11 +16,41 @@ angular.module('testFlowApp')
 
 		//purely for testing, remove before publishing
 		function setupDefaultNodes(root) {
-			root.children.push.apply(root.children, [
-				Tree.Node("This is", ["child1", "child2"]),
-				Tree.Node("a test", ["child1"]),
-				Tree.Node("to see how"),
-				Tree.Node("well this works")
-			]);
+
+			var nodes = [{
+					content: 'content',
+					children: [{
+						content: 'child1',
+						children: [{
+							content:'subchild',
+							children: []
+						}]
+					}]
+				},
+				{
+					content: 'content2',
+					children: [{
+						content: 'child1',
+						children: [{
+							content:'subchild',
+							children: []
+						}]
+					}]
+				}
+			];
+
+			function mapNodes(nodes) {
+				return _.map(nodes, function(rawNode) {
+					var node = Tree.Node(rawNode.content);
+					if(rawNode.children) {
+						node.append(mapNodes(rawNode.children));
+					}
+					return node;
+				});
+			}
+
+			var what = mapNodes(nodes);
+
+			root.append(what);
 		}
 	});

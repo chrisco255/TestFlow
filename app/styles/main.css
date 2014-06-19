@@ -3,6 +3,11 @@ body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	background-image: url('../images/halftone.png');
+	font-family: 'Open Sans', Arial, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Inconsolata', monospace;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -11,6 +16,12 @@ body {
 .footer {
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /* Custom page header */
@@ -77,7 +88,7 @@ body {
 .expandable, .collapsible {
 	position: absolute;
 	left: 0;
-	font-size: 18px;
+	font-size: 1em;
 	padding: 7px;
 }
 
@@ -107,18 +118,18 @@ content:focus {
 .animate.ng-enter, 
 .animate.ng-leave
 { 
-		-webkit-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
-		-moz-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
-		-ms-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
-		-o-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
-		transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
-		position: relative;
-		display: block;
+	-webkit-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+	-moz-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+	-ms-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+	-o-transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+	transition: 50ms cubic-bezier(0.25, 0.25, 1, 1) all;
+	position: relative;
+	display: block;
 } 
 
 .animate.ng-enter.ng-enter-active, 
 .animate.ng-leave {
-		-webkit-transform: scaleY(1);
+	-webkit-transform: scaleY(1);
 	-moz-transform: scaleY(1);
 	-ms-transform: scaleY(1);
 	-o-transform: scaleY(1);
@@ -129,7 +140,7 @@ content:focus {
 
 .animate.ng-leave.animate.ng-leave-active,
 .animate.ng-enter {
--webkit-transform: scaleY(0);
+	-webkit-transform: scaleY(0);
 	-moz-transform: scaleY(0);
 	-ms-transform: scaleY(0);
 	-o-transform: scaleY(0);
@@ -166,45 +177,68 @@ content:focus {
 }
 
 .bullet {
-	width: 28px;
-	height: 28px;
-	margin: 5px;
-	display: inline-block;
-	background-size: 28px 28px;
-	background-position: center no-repeat;
-	vertical-align: middle;
-	/* Folder designed by Sergio Calcara from the Noun Project */
 	position: relative;
-	margin-left: 25px;
+	margin-left: 1.5em;
+	display: inline-block;
+	vertical-align: middle;
 }
 
-ul>li>span {
-  background: url('../images/folder2.png') center no-repeat;
+.bullet:before {
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	display: inline-block;
+	text-decoration: inherit;
+	font-size: 1.4em;
+	margin-right: 0.2em;
+	color: #F8F5E1;
 
+	text-shadow:
+		-1px -1px 0 #040C3A,  
+		1px -1px 0 #040C3A,
+		-1px 1px 0 #040C3A,
+		1px 1px 0 #040C3A;
 }
 
-ul ul>li>.bullet {
-	background-image: url('../images/briefcase.png');
+.suite:before {
+	content: '\f07b';
+	color: #040C3A;
+}
+
+.suite-open:before {
+	content: '\f07c';
+	color: #040C3A;
+}
+
+.case:before {
+	content: '\f07b';
+	color: #83B6EB;
+}
+
+.case-open:before {
+	content: '\f07c';
+	color: #83B6EB;
+}
+
+.step:before {
+	content: '\f111';
+	color: #000;
+	text-shadow: none;
 }
 
 ul ul ul>li>.bullet {
 	background-image:  url('../images/dot.png');
 }
 
-/* numbers for steps */
-ul>li>span>span {
-  display: none;
-}
-
 ul ul ul>li>span>span {
-  display: inherit;
-  color: white;
-  font-size: inherit;
-  margin: 4px 10px;
+	display: inherit;
+	color: white;
+	font-size: inherit;
+	margin: 4px 10px;
 }
 
 ul ul ul ul>li>span>span {
-  color: red;
+	color: red;
 }
 
 /******************************/
@@ -220,15 +254,34 @@ ul ul ul ul>li>span>span {
 /******************************/
 
 #sidebar {
-  position: absolute;
-  width: 200px;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border-right: DimGray solid 2px;
-  background: gray;
-  border-radius: 2px;
-  padding: 15px;
+	position: absolute;
+	width: 200px;
+	min-height: 100%;
+	top: 0;
+	left: 0;
+	border-right: #AAA solid 1px;
+	background: #CCC;
+	padding: 0.5em;
+	color: #333;
+}
+
+#sidebar h1 {
+	color: #333;
+	font-size: 1.2em;
+	margin-top: 0;
+	margin-bottom: 0.5em;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-bottom: 1px solid #999;
+	padding: 0 0.2em 0.5em 0.2em;
+}
+
+#sidebar h1:after {
+
+}
+
+#sidebar p {
+	margin-left: 0.3em;
 }
 
 /******************************/
@@ -236,17 +289,24 @@ ul ul ul ul>li>span>span {
 /******************************/
 .container {
 }
-#container {
-  position: relative;
-  top: 3em;
-  padding-left: 220px;
-  background-color: white;
-  margin-bottom: 3em;
-  border: 1px solid #CCC;
+
+#docview {
+	position: relative;
+	top: 3em;
+	padding-left: 200px;
+	background-color: white;
+	margin-bottom: 3em;
+	border: 1px solid #CCC;
+	min-height: 90%;
 }
 
 #content {
 	background-color: white;
+}
+
+#content > ul {
+	padding-left: 0;
+	margin-top: 1em;
 }
 
 /******************************/
