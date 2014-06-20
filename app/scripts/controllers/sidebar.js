@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('testFlowApp')
-  .controller('SidebarCtrl', function ($scope) {
-    $scope.el = ["hello", "hola", "bonjour"];
-    $scope.topLevel = [];
-    for (var i = 0; i < $scope.root.children.length; i++) {
-    	$scope.topLevel.push($scope.root.children[i].content);
-    }
+	.controller('SidebarCtrl', function ($scope, Tree, EventHandlers) {
+		$scope.testSuites = _.each(Tree.root.children, function(node) {
+			return node;
+		});
 
-  });
+		$scope.clickNode = function(scope) {
+			EventHandlers.ClickNode(scope);
+		};
+	});

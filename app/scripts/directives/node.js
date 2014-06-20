@@ -1,12 +1,18 @@
 'use strict';
 
 angular.module('testFlowApp')
-	.directive('node', function ($compile, EventHandlers) {
+	.directive('node', function ($compile, EventHandlers, Tree, $timeout) {
 		
 		return {
 			restrict: 'E',
 			replace: true,
-	    template: '<li class="animate"><span class="col-exp"><span ng-show="node.children.collapsed" ng-click="expand(this)" class="expandable"><i class="fa fa-plus"></i></span><span ng-show="!node.children.collapsed" ng-click="collapse(this)" class="collapsible"><i class="fa fa-minus"></i></span></span><span class="bullet"></span><content contenteditable="true" ng-model="node.content"></content></li>',			link: function(scope, element, attrs, ctrl) {
+			templateUrl: 'templates/node.html',
+			link: function(scope, element, attrs, ctrl) {
+				//
+				scope.clickNode = scope.clickNode || function(scope) {
+					EventHandlers.ClickNode(scope, element);
+				};
+
 				//bound to the collapse node icon
 				scope.collapse = scope.collapse || function(scope) {
 					EventHandlers.Collapse(scope);
@@ -39,7 +45,7 @@ angular.module('testFlowApp')
 					.on("mouseenter", function () {
 						var _this = this;
 						// Wait 300 ms
-						setTimeout(function() {
+						$timeout(function() {
 							// If not hovering in another bullet
 							if ($(".bullet:hover")[0] === _this) {
 								// Show the popover
@@ -55,7 +61,7 @@ angular.module('testFlowApp')
 					.on("mouseleave", function () {
 						var _this = this;
 						// Wait 100ms
-						setTimeout(function () {
+						$timeout(function () {
 							// If not hovering in ANY popover
 							if (!$(".popover:hover").length) {
 								// Hide the popover

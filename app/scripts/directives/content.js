@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('testFlowApp')
-	.directive('content', function (Tree, EventHandlers) {
+	.directive('content', function (Tree, EventHandlers, $timeout) {
 		return {
 			restrict: 'E',
 			require: 'ngModel',
@@ -80,7 +80,7 @@ angular.module('testFlowApp')
 
 							// Timeout of zero causes this to function to run after the current one 
 							// is complete.  Makes sure the view is updated before the model value gets updated.
-							setTimeout(function() {
+							$timeout(function() {
 								// view -> model
 								scope.$apply(function() {
 									ctrl.$setViewValue(element.html());
