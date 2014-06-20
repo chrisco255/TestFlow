@@ -8,6 +8,10 @@ angular.module('testFlowApp')
 		//set up some default nodes for testing and demoing
 		setupDefaultNodes($scope.root);
 
+		$scope.rootIsTreeRoot = function() {
+			return $scope.root === Tree.root;
+		};
+
 		//goofy experiment that will likely be removed later
 		//"The More You Know" audio
 		$scope.playAudio = function() {
@@ -51,6 +55,7 @@ angular.module('testFlowApp')
 
 			var what = mapNodes(nodes);
 
+			root.children = [];
 			root.append(what);
 		}
 	});

@@ -192,6 +192,7 @@ content:focus {
 	font-size: 1.4em;
 	margin-right: 0.2em;
 	color: #F8F5E1;
+	padding-left: 0.25em;
 
 	text-shadow:
 		-1px -1px 0 #040C3A,  
@@ -205,7 +206,7 @@ content:focus {
 	color: #040C3A;
 }
 
-.suite-open:before {
+.suite.open:before {
 	content: '\f07c';
 	color: #040C3A;
 }
@@ -215,7 +216,7 @@ content:focus {
 	color: #83B6EB;
 }
 
-.case-open:before {
+.case.open:before {
 	content: '\f07c';
 	color: #83B6EB;
 }
@@ -226,19 +227,18 @@ content:focus {
 	text-shadow: none;
 }
 
-ul ul ul>li>.bullet {
+.openable:before {
+	height: 1.4em;
+	width: 1.4em;
+	background: url('../images/halodot.png');
+	background-size: 95% 95%;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+
+.bullet {
 	background-image:  url('../images/dot.png');
-}
-
-ul ul ul>li>span>span {
-	display: inherit;
-	color: white;
-	font-size: inherit;
-	margin: 4px 10px;
-}
-
-ul ul ul ul>li>span>span {
-	color: red;
 }
 
 /******************************/
@@ -254,15 +254,17 @@ ul ul ul ul>li>span>span {
 /******************************/
 
 #sidebar {
-	position: absolute;
-	width: 200px;
-	min-height: 100%;
-	top: 0;
-	left: 0;
-	border-right: #AAA solid 1px;
-	background: #CCC;
-	padding: 0.5em;
-	color: #333;
+position: absolute;
+width: 200px;
+min-height: 100%;
+max-height: 100%;
+top: 0;
+left: 0;
+border-right: #AAA solid 1px;
+background: #CCC;
+padding: 0.5em;
+color: #333;
+overflow-y: auto;
 }
 
 #sidebar h1 {

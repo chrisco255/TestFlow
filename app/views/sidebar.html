@@ -1,7 +1,7 @@
 <div ng-controller="SidebarCtrl as sc" id='sidebar'>
 	<h1 class="sidebar-header">Test Suites</h1>
-	<p class="truncate" ng-repeat="suite in testSuites" href=>
+	<p class="truncate" ng-repeat="node in testSuites" ng-click="clickNode(this)">
 		<i class="fa fa-folder"></i>
-		<span ng-bind-html="suite.content"></span>
+		<span ng-bind-html="node.content"></span>
 	</p>
 </div>

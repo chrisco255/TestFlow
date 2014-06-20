@@ -1,13 +1,14 @@
 'use strict';
 
 angular.module('testFlowApp')
-	.directive('node', function ($compile, EventHandlers) {
+	.directive('node', function ($compile, EventHandlers, Tree, $timeout) {
 		
 		return {
 			restrict: 'E',
 			replace: true,
 			templateUrl: 'templates/node.html',
 			link: function(scope, element, attrs, ctrl) {
+				//
 				scope.clickNode = scope.clickNode || function(scope) {
 					EventHandlers.ClickNode(scope, element);
 				};
@@ -44,7 +45,7 @@ angular.module('testFlowApp')
 					.on("mouseenter", function () {
 						var _this = this;
 						// Wait 300 ms
-						setTimeout(function() {
+						$timeout(function() {
 							// If not hovering in another bullet
 							if ($(".bullet:hover")[0] === _this) {
 								// Show the popover
@@ -60,7 +61,7 @@ angular.module('testFlowApp')
 					.on("mouseleave", function () {
 						var _this = this;
 						// Wait 100ms
-						setTimeout(function () {
+						$timeout(function () {
 							// If not hovering in ANY popover
 							if (!$(".popover:hover").length) {
 								// Hide the popover

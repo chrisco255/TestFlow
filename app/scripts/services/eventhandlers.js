@@ -115,8 +115,12 @@ angular.module('testFlowApp')
 
 		//drill down to this node
 		this.ClickNode = function(scope, element) {
-			Tree.drillBranch.children = [scope.node];
-			scope.$root.$$childHead.root = Tree.drillBranch;
+			scope.$root.$$childHead.root = scope.node;
+		};
+
+		//navigate on a breadcrumb step
+		this.ClickStep = function(scope) {
+			scope.$root.$$childHead.root = scope.step;
 		};
 
 		//collapse all children into the parent that was clicked

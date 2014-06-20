@@ -4,13 +4,10 @@ angular.module('testFlowApp')
 	.factory('Tree', function () {
 		var tree = {};
 		var levels = {
-			root: 'root',
-			suite: 'suite',
-			suiteOpen: 'suite-open',
-			case: 'case',
-			caseOpen: 'case-open',
-			step: 'step',
-			stepOpen: 'step-open'
+			'root': 'root',
+			'suite': 'suite',
+			'case': 'case',
+			'step': 'step'
 		};
 
 		// Node constructor function
@@ -18,10 +15,10 @@ angular.module('testFlowApp')
 			// return the descendent level of a given level 
 			function descendentLevel(level) {
 				if(level === levels.root)
-					return levels.suite;
+					return levels['suite'];
 				if(level === levels.suite)
-					return levels.case;
-				return levels.step;
+					return levels['case'];
+				return levels['step'];
 			}
 
 			//returns true if all objects in an array are in fact nodes

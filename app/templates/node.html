@@ -7,6 +7,11 @@
 			<i class="fa fa-minus"></i>
 		</span>
 	</span>
-	<span ng-click="clickNode(this)" class="bullet" ng-class="node.level"></span>
+	<span ng-click="clickNode(this)" class="bullet" ng-class="{ 
+		'suite' : node.level === 'suite', 
+		'case' : node.level === 'case',
+		'step' : node.level === 'step',
+		'open' : !node.children.collapsed,
+		'openable' : node.children.collapsed && node.children.length > 0 }"></span>
 	<content contenteditable="true" ng-model="node.content"></content>
 </li>
