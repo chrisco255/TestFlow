@@ -37,7 +37,7 @@ angular.module('testFlowApp')
 					});
 				
 				//text options for the hover menu
-				var strForHover = "Add Note <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete"
+				var strForHover = "<a>Add Note</a> <br> Add Attachment <br> Annotate <br> View Annotations <br> Delete"
 								
 				// When a bullet is created, add a mouseover event listener
 				element.children(".bullet").popover({ trigger: "manual" , html: true, placement: 'bottom', content: strForHover})

@@ -20,7 +20,7 @@ angular.module('testFlowApp')
 				//now set the parents of the node collection
 				scope.node.parentNode.setParents();
 			} else if(scope.node.children.length > 0) {
-				scope.node.prepend();
+				scope.node.prependChild();
 				//scope.node.children.unshift(Tree.Node());
 				//scope.node.setParents();
 			}
