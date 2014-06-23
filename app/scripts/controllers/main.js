@@ -5,38 +5,65 @@ angular.module('testFlowApp')
 		//bind the root to the Tree factory
 		$scope.root = Tree.root;
 
-		//set up some default nodes for testing and demoing
-		setupDefaultNodes($scope.root);
-
 		$scope.rootIsTreeRoot = function() {
 			return $scope.root === Tree.root;
 		};
 
-		//goofy experiment that will likely be removed later
-		//"The More You Know" audio
-		$scope.playAudio = function() {
-			$("#audio").get(0).play();
-		};
+		//set up some default nodes for testing and demoing
+		setupDefaultNodes($scope.root);
 
 		//purely for testing, remove before publishing
 		function setupDefaultNodes(root) {
 
 			var nodes = [{
-					content: 'content',
+					content: 'Home Page',
 					children: [{
-						content: 'child1',
+						content: 'Log in',
 						children: [{
-							content:'subchild',
+							content:'Without entering any username and password',
+							children: [{
+								content:'Empty out input fields',
+								children: []
+							},{
+								content:'Click log in',
+								children: []
+							}]
+						},{
+							content:'Test it only with username',
+							children: []
+						},{
+							content:'Test it only with password',
+							children: []
+						},{
+							content:'User name with wrong password',
+							children: []
+						},{
+							content:'Password with wrong user name',
+							children: []
+						},{
+							content:'Right username and right password',
+							children: []
+						},{
+							content:'Cancel, after entering username and password',
+							children: []
+						},{
+							content:'Enter long username and password that exceeds the set limit of characters',
+							children: []
+						},{
+							content:'Try copy/paste in the password text box',
 							children: []
 						}]
 					}]
 				},
 				{
-					content: 'content2',
+					content: 'Reservations',
 					children: [{
-						content: 'child1',
+						content: 'Datepicker',
 						children: [{
-							content:'subchild',
+							content:'Set departure date previous to today',
+							children: []
+						},{
+							content:'Select an arrival date before departure date',
 							children: []
 						}]
 					}]
@@ -47,15 +74,15 @@ angular.module('testFlowApp')
 				return _.map(nodes, function(rawNode) {
 					var node = Tree.Node(rawNode.content);
 					if(rawNode.children) {
-						node.append(mapNodes(rawNode.children));
+						node.appendChild(mapNodes(rawNode.children));
 					}
 					return node;
 				});
 			}
 
-			var what = mapNodes(nodes);
+			var suites = mapNodes(nodes);
 
 			root.children = [];
-			root.append(what);
+			root.appendChild(suites);
 		}
 	});

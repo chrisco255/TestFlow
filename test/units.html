@@ -12,15 +12,15 @@
         <td colspan="3" title="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36">Browser: Chrome 35.0.1916 (Windows 7)</td>
       </tr>
       <tr class="overview">
-        <td colspan="3">Timestamp: 2014-06-16T19:04:48</td>
+        <td colspan="3">Timestamp: 2014-06-20T20:17:19</td>
       </tr>
       <tr>
         <td colspan="3">
-          10 tests / 
+          11 tests / 
           0 errors / 
-          5 failures / 
+          6 failures / 
           0 skipped / 
-          runtime: 0.053s
+          runtime: 0.059s
         </td>
       </tr>
       <tr class="header">
@@ -33,6 +33,21 @@
         <td>should attach a list of awesomeThings to the scope</td>
         <td>
           Controller: MainCtrl
+          <br />ReferenceError: _ is not defined
+    at mapNodes (c:/Projects/TestFlow/app/scripts/controllers/main.js:74:12)
+    at setupDefaultNodes (c:/Projects/TestFlow/app/scripts/controllers/main.js:83:17)
+    at new <anonymous> (c:/Projects/TestFlow/app/scripts/controllers/main.js:13:3)
+    at invoke (c:/Projects/TestFlow/app/bower_components/angular/angular.js:3869:17)
+    at Object.instantiate (c:/Projects/TestFlow/app/bower_components/angular/angular.js:3880:23)
+    at c:/Projects/TestFlow/app/bower_components/angular/angular.js:7134:28
+    at null.<anonymous> (c:/Projects/TestFlow/test/spec/controllers/main.js:14:16)
+    at Object.invoke (c:/Projects/TestFlow/app/bower_components/angular/angular.js:3869:17)
+    at workFn (c:/Projects/TestFlow/app/bower_components/angular-mocks/angular-mocks.js:2143:20)
+Error: Declaration Location
+    at window.inject.angular.mock.inject (c:/Projects/TestFlow/app/bower_components/angular-mocks/angular-mocks.js:2128:25)
+    at null.<anonymous> (c:/Projects/TestFlow/test/spec/controllers/main.js:12:14)
+    at c:/Projects/TestFlow/test/spec/controllers/main.js:3:1
+
           <br />Expected undefined to be 'hmmss'.
 Error: Expected undefined to be 'hmmss'.
     at null.<anonymous> (c:/Projects/TestFlow/test/spec/controllers/main.js:22:26)
@@ -59,6 +74,19 @@ Error: Declaration Location
 
           <br />TypeError: Cannot read property 'length' of undefined
     at null.<anonymous> (c:/Projects/TestFlow/test/spec/controllers/sidebar.js:20:31)
+
+        </td>
+      </tr>
+      <tr class="fail">
+        <td>Failed</td>
+        <td>should make hidden element visible</td>
+        <td>
+          Directive: breadcrumbs
+          <br />Expected '' to be 'this is the breadcrumbs directive'.
+Error: Expected '' to be 'this is the breadcrumbs directive'.
+    at null.<anonymous> (c:/Projects/TestFlow/test/spec/directives/breadcrumbs.js:18:28)
+    at Object.invoke (c:/Projects/TestFlow/app/bower_components/angular/angular.js:3869:17)
+    at workFn (c:/Projects/TestFlow/app/bower_components/angular-mocks/angular-mocks.js:2143:20)
 
         </td>
       </tr>
@@ -111,7 +139,7 @@ Error: Expected '' to be 'this is the nodecollection directive'.
         </td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.003s</td>
+        <td>Passed in 0.002s</td>
         <td>should do something</td>
         <td>Service: EventHandlers</td>
       </tr>
@@ -126,7 +154,7 @@ Error: Expected '' to be 'this is the nodecollection directive'.
         <td>Service: Tree &raquo; Node</td>
       </tr>
       <tr class="pass">
-        <td>Passed in 0.001s</td>
+        <td>Passed in 0.002s</td>
         <td>should have an empty children array by default</td>
         <td>Service: Tree &raquo; Node</td>
       </tr>

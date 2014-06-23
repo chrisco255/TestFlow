@@ -24,7 +24,9 @@ angular.module('testFlowApp')
 			//returns true if all objects in an array are in fact nodes
 			function allAreNodes(nodes) {
 				if(_.isArray(nodes)) {
-					var nodeCount = _.filter(nodes, function(n) { 
+					var nodeCount = _.filter(nodes, function(n) {
+						//for some reason, the comparison fails directly, but succeeds when
+						//converted to strings
 						return '' + Node === '' + n.constructor; 
 					});
 					return nodeCount.length === nodes.length;
@@ -55,7 +57,7 @@ angular.module('testFlowApp')
 				});
 			}
 			
-			Node.prototype.append = function append(node) {
+			Node.prototype.appendChild = function appendChild(node) {
 				if(allAreNodes(node)) {
 					this.children.push.apply(this.children, node);
 				}
@@ -71,7 +73,7 @@ angular.module('testFlowApp')
 				this.setParents();
 			};
 
-			Node.prototype.prepend = function prepend(node) {
+			Node.prototype.prependChild = function prependChild(node) {
 				if(allAreNodes(node)) {
 					this.children.unshift.apply(this.children, node);
 				}
@@ -92,7 +94,6 @@ angular.module('testFlowApp')
 
 		//The root node of the view
 		tree.root = tree.Node();
-		tree.drillBranch = tree.Node();
 
 		return tree;
 

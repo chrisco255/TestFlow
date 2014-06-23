@@ -33,6 +33,9 @@ angular.module('testFlowApp')
 
 		//reenable animations after the currently digesting bindings update the view
 		function enableAnimations(scope) {
+			//attempted to do this with $evalAsync and nested $timeout functions
+			//instead of the private postDigest method.  However, either they introduce 
+			//unwanted delays or the animations continue to be jumpy.
 			scope.$$postDigest(function() {
 				//DOM removals, it seems, run at the end of the postDigest function,
 				//so a setTimeout reenables the animations after the DOM removals

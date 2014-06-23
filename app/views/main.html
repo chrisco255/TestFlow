@@ -32,7 +32,7 @@
 <div id='docview'>
 	<div ng-include src="'views/sidebar.html'"></div>
   <breadcrumbs></breadcrumbs>
-  <h1 ng-hide="rootIsTreeRoot()">{{root.content}}</h1>
+  <h3 ng-hide="rootIsTreeRoot()">{{root.content}}</h3>
 	<div id="content">
 		<nodecollection nodecollection="root.children"></nodecollection>
 	</div>

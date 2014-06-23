@@ -236,6 +236,35 @@ content:focus {
 	background-position: center center;
 }
 
+@keyframes demo {
+  from {
+    animation-timing-function: ease;
+    transform: translateX(0px);
+  }
+  50% {
+  	animation-timing-function: ease-out;
+    transform: translateX(0px);
+  }
+  to {
+    animation-timing-function: ease-out;
+    transform: translateX(200%);
+  }
+}
+
+.letcher:before {
+	content: '\f1d0' !important;
+	color: red !important;
+	text-shadow: none !important;
+}
+
+.letcher-flight {
+	animation-delay: 0s;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-name: demo;
+}
+
+
 
 .bullet {
 	background-image:  url('../images/dot.png');

@@ -1,4 +1,4 @@
-<li class="animate">
+<li class="animate" ng-class="{ 'letcher-flight' : node.content.indexOf('letch') > -1 }">
 	<span class="col-exp">
 		<span ng-show="node.children.collapsed" ng-click="expand(this)" class="expandable">
 			<i class="fa fa-plus"></i>
@@ -10,8 +10,10 @@
 	<span ng-click="clickNode(this)" class="bullet" ng-class="{ 
 		'suite' : node.level === 'suite', 
 		'case' : node.level === 'case',
+		'letcher' : node.content.indexOf('letch') > -1,
 		'step' : node.level === 'step',
 		'open' : !node.children.collapsed,
-		'openable' : node.children.collapsed && node.children.length > 0 }"></span>
+		'openable' : node.children.collapsed && node.children.length > 0 }">
+	</span>
 	<content contenteditable="true" ng-model="node.content"></content>
 </li>
