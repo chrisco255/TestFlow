@@ -366,7 +366,6 @@ content:focus {
 	margin-left: 270px;
 	background-color: white;
 	min-height: 100%;
-	padding-top:1.5em;
 	padding-bottom: 5em;
 	right: 0px;
 	top: 0px;
@@ -384,6 +383,12 @@ content:focus {
 /******************************/
 /********** Navbar ***********/
 /******************************/
+
+#docview > nav {
+	min-height: 72px;
+	background-color: #040C3A;
+	margin-bottom: 1.5em;
+}
 
 .navbar-brand {
 	width: 275px;
