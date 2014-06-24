@@ -1,9 +1,7 @@
 /* Space out content a bit */
 body {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	background-image: url('../images/halftone.png');
 	font-family: 'Open Sans', Arial, sans-serif;
+	margin-top: -20px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -40,7 +38,11 @@ h1,h2,h3,h4,h5,h6 {
 .footer {
 	padding-top: 19px;
 	color: #777;
-	border-top: 1px solid #e5e5e5;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 100;
+	margin-right: 1.5em;
 }
 
 /* Customize container */
@@ -302,17 +304,18 @@ content:focus {
 /******************************/
 
 #sidebar {
-	position: absolute;
-	width: 200px;
+	position: fixed;
+	width: 270px;
 	min-height: 100%;
 	max-height: 100%;
 	top: 0;
 	left: 0;
-	border-right: #AAA solid 1px;
-	background: #CCC;
+	bottom: 0;
+	background: #EEE;
 	padding: 0.5em;
 	color: #333;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 #sidebar h1 {
@@ -334,6 +337,24 @@ content:focus {
 	margin-left: 0.3em;
 }
 
+/*  Title  */
+.title {
+	position: relative;
+	height: 72px;
+	background-color: blue;
+	background: url('../images/testflow-medium.png');
+	background-repeat: no-repeat;
+	background-size: 48px 48px;
+	background-position: 36px center;
+	margin-bottom: 12px;
+}
+
+.title > img {
+	position: relative;
+	top: 25px;
+	left: 84px;
+}
+
 /******************************/
 /********** Body ***********/
 /******************************/
@@ -341,13 +362,15 @@ content:focus {
 }
 
 #docview {
-	position: relative;
-	top: 3em;
-	padding-left: 200px;
+	position: absolute;
+	margin-left: 270px;
 	background-color: white;
-	margin-bottom: 3em;
-	border: 1px solid #CCC;
-	min-height: 90%;
+	min-height: 100%;
+	padding-top:1.5em;
+	padding-bottom: 5em;
+	right: 0px;
+	top: 0px;
+	left: 0;
 }
 
 #content {
@@ -356,7 +379,6 @@ content:focus {
 
 #content > ul {
 	padding-left: 0;
-	margin-top: 1em;
 }
 
 /******************************/
