@@ -16,6 +16,31 @@ angular.module('testFlowApp')
 		function setupDefaultNodes(root) {
 
 			var nodes = [{
+					content: 'Remaining Paycheck Calculations',
+					children: [{
+						content: 'YearlyGoal_RemainingPaysLabelsDisplayedCorrectly',
+						children: [{
+							content: 'Given I navigate to Myself -> Life Events as an employee',
+							children: [{
+								content: 'User: RemPayWkL/password',
+							}, {
+								content: 'LE Session: RPDOLH- Remain pays date of last hire en'
+							}, {
+								content: 'Type: DEF'
+							}]
+						}, {
+							content: 'When I elect a plan with a yearly goal rule',
+							children: [{
+								content: 'Plan: DEF- cont goal - DS00/CS00 -(GDFC1)'
+							}]
+						}, {
+							content: 'Then the Remaining Paychecks Label is displayed',
+							children: [{
+								content: 'Label: Remaining pay checks'
+							}]
+						}]
+					}]
+				}, {
 					content: 'Home Page',
 					children: [{
 						content: 'Log in',
